@@ -14,11 +14,13 @@ public class PlayerControll : MonoBehaviour
     private Countdown countdown; // Countdownスクリプトへの参照を追加
     public TextMeshProUGUI countdownText; //旗に触れたら時間変更
     private Time time; // Time スクリプトへの参照を追加
+     private Animator animator; // Animatorコンポーネントへの参照
 
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody>(); // このGameObjectにアタッチされているRigidbodyコンポーネントを取得
+        animator = GetComponent<Animator>(); // Animatorコンポーネントを取得
         GameObject gameManagerObj = GameObject.Find("GameManager"); // GameManagerオブジェクトを取得
 
         if (gameManagerObj != null)
@@ -37,9 +39,11 @@ public class PlayerControll : MonoBehaviour
     {
         if (countdown != null && countdown.start) // カウントダウンが終了したかどうか
         {
+            
             //-----------------移動、ジャンプのスクリプト----------------------
             transform.Translate(Vector3.forward * UnityEngine.Time.deltaTime * moveSpeed, Space.World);
             moveSpeed += UnityEngine.Time.deltaTime * acceleration;
+            animator.SetBool("Run",true); // 走り出す
 
             if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
             {
@@ -55,6 +59,7 @@ public class PlayerControll : MonoBehaviour
             {
                 rb.AddForce(Vector3.up * upwardForce, ForceMode.Impulse);
                 isGrounded = false; // ジャンプ後は空中にいるとする
+                animator.SetTrigger("Jump"); // ジャンプのトリガーを設定
                 Debug.Log("ジャンプ");
             }
         }
@@ -67,19 +72,6 @@ public class PlayerControll : MonoBehaviour
         {
             isGrounded = true; // "Road"タグのオブジェクトと接触したときにフラグをtrueにする
             Debug.Log("地面に触れる");
-        }
-        //----------------旗に触れたら時間を変更する--------------------------
-        if (collision.gameObject.tag == "Flag") // 旗のタグをチェック
-        {
-            if (time != null)
-            {
-                time.ResetCountdown(); // カウントダウンをリセット
-                Debug.Log("旗に触れてカウントダウンをリセット");
-            }
-            else
-            {
-                Debug.LogError("Time スクリプトが見つかりません");
-            }
         }
     }
 }

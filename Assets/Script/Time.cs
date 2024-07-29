@@ -51,5 +51,7 @@ public class Time : MonoBehaviour
     public void ResetCountdown()
     {
         currentTime = countdownTime; // カウントダウン時間をリセット
+        countdownText.text="30";
+        Debug.Log("旗に触れる");
     }
 }
