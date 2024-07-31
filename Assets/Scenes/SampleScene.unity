@@ -170,7 +170,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countdownText: {fileID: 1441090708}
-  countdownTime: 30
+  countdownTime: 60
   currentTime: 0
 --- !u!114 &621817969
 MonoBehaviour:
