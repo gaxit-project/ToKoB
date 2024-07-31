@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class Flag : MonoBehaviour
 {
-    private Time time; // Time スクリプトへの参照を追加
+    private tTime ttime; // Time スクリプトへの参照を追加
     // Start is called before the first frame update
     void Start()
     {
         GameObject gameManagerObj = GameObject.Find("GameManager"); // GameManagerオブジェクトを取得
-        time = gameManagerObj.GetComponent<Time>(); // Timeスクリプトを取得
+        ttime = gameManagerObj.GetComponent<tTime>(); // Timeスクリプトを取得
     }
 
     
@@ -18,7 +18,7 @@ public class Flag : MonoBehaviour
         if (collision.gameObject.tag == "Player")
         {   
             Debug.Log("旗に触れる");
-            time.ResetCountdown(); // カウントダウンをリセット
+            ttime.ResetCountdown(); // カウントダウンをリセット
             Destroy(this.gameObject);
         }
     }
