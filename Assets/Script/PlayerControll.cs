@@ -13,7 +13,7 @@ public class PlayerControll : MonoBehaviour
     private bool isGrounded; // フラグを追加
     private Countdown countdown; // Countdownスクリプトへの参照を追加
     public TextMeshProUGUI countdownText; //旗に触れたら時間変更
-    private Time time; // Time スクリプトへの参照を追加
+    private tTime ttime; // Time スクリプトへの参照を追加
      private Animator animator; // Animatorコンポーネントへの参照
 
     // Start is called before the first frame update
@@ -26,7 +26,7 @@ public class PlayerControll : MonoBehaviour
         if (gameManagerObj != null)
         {
             countdown = gameManagerObj.GetComponent<Countdown>(); // Countdownスクリプトを取得
-            time = gameManagerObj.GetComponent<Time>(); // Timeスクリプトを取得
+            ttime = gameManagerObj.GetComponent<tTime>(); // Timeスクリプトを取得
         }
         else
         {
