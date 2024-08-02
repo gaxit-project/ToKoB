@@ -192,7 +192,6 @@ GameObject:
   - component: {fileID: 621817968}
   - component: {fileID: 621817969}
   - component: {fileID: 621817970}
-  - component: {fileID: 621817971}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -261,21 +260,6 @@ MonoBehaviour:
   - {fileID: 1496118311}
   - {fileID: 1033144517}
   Hp: 3
---- !u!114 &621817971
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 621817966}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0e63e20178c63d747a27b204cd0be908, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  target: {fileID: 0}
-  CountCoinText: {fileID: 1743739436}
-  OneCount: 0
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
