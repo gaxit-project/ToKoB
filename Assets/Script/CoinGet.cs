@@ -2,12 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class CoinGet : MonoBehaviour
 {
     public TextMeshProUGUI CountCoinText;
 
-    private int CoinCount;　//コインのカウント
+    public static int CoinCount;　//コインのカウント
     public bool OneCount;　//1カウントするためのブール
 
     void OnCollisionEnter(Collision collision)
@@ -15,6 +16,10 @@ public class CoinGet : MonoBehaviour
         if (collision.gameObject.tag == "Coin")
         {
             HowMuchCoin();
+        }
+        else if (collision.gameObject.tag == "TsujinoTest")
+        {
+            SceneManager.LoadScene("Clear");
         }
     }
 
