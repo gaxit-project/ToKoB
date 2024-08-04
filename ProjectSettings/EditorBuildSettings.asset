@@ -6,11 +6,8 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Title.unity
-    guid: 0f3a7900fd821a043b4e164656ed994e
-  - enabled: 1
-    path: Assets/Scenes/SampleScene.unity
-    guid: ca79538d4df952d41b86e4078e18fba1
+    path: Assets/Scenes/Tsujinno.unity
+    guid: 9d3360542c106a345825dd9d3289e20f
   - enabled: 1
     path: Assets/Scenes/Clear.unity
     guid: 51fec7063bd639043a8bb829db639055
