@@ -20,7 +20,7 @@ public class Title_Button : MonoBehaviour
 
     public void GameStart()
     {
-        SceneManager.LoadScene(scenename);
+        SceneManager.LoadScene("SampleScene");
     }
 
     public void GameEnd()
