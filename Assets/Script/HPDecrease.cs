@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class HPDecrease : MonoBehaviour
 {
@@ -19,8 +20,8 @@ public class HPDecrease : MonoBehaviour
                 yield return new WaitForSeconds(1f); // 1秒待つ
             }
 
-            if(Hp==0){
-                // ゲームオーバーの処理
+            if(Hp==1){
+                SceneManager.LoadScene("Clear");
             }
         }
     }

@@ -4,13 +4,34 @@ using UnityEngine;
 
 public class DeleteRoad : MonoBehaviour
 {
-    //----------------------------------いらないうしろの道の削除=====================
-    void OnCollisionEnter(Collision collision)
+    private Countdown countdown; // Countdownスクリプトへの参照を追加
+    public float moveSpeed = 3f; // 前進速度
+    public float acceleration = 0.01f; // 加速
+    private Rigidbody rb;
+
+
+    void Start()
     {
-        if (collision.gameObject.tag == "Road")
+        rb = GetComponent<Rigidbody>(); // このGameObjectにアタッチされているRigidbodyコンポーネントを取得
+        GameObject gameManagerObj = GameObject.Find("GameManager"); // GameManagerオブジェクトを取得
+        countdown = gameManagerObj.GetComponent<Countdown>(); // Countdownスクリプトを取得
+        
+    }
+
+
+    void Update()
+    {
+        if (countdown != null && countdown.start) // カウントダウンが終了したかどうか
         {
-            Destroy(collision.gameObject); // "Road"タグのオブジェクトを破壊
-            Debug.Log("Roadオブジェクトを破壊しました");
+            
+            //-----------------移動、ジャンプのスクリプト----------------------
+            transform.Translate(Vector3.forward * UnityEngine.Time.deltaTime * moveSpeed, Space.World);
+            moveSpeed += UnityEngine.Time.deltaTime * acceleration;
         }
+    }
+   void OnCollisionEnter(Collision collision)
+    {
+        Destroy(collision.gameObject); // 触れたすべてのオブジェクトを破壊
+        Debug.Log($"{collision.gameObject.name}オブジェクトを破壊しました");
     }
 }
