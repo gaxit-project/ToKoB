@@ -21,7 +21,7 @@ public class ScoreResult : MonoBehaviour
         //‚±‚±‚Éˆ—‚ğ‘‚­
         Debug.Log("C³’†");
         GameObject obj = (GameObject)Resources.Load("ResultCoin");
-        Instantiate(obj, new Vector3(0.0f, 5, 0.0f), Quaternion.identity);
+        Instantiate(obj, new Vector3(0.0f, 5, -1.5f), Quaternion.identity);
 
 
         //1ƒtƒŒ[ƒ€’â~
