@@ -7,11 +7,13 @@ public class GenerateLevels : MonoBehaviour
     public GameObject[] Marumoto;
     public GameObject[] Uetani;
     public GameObject[] Tsujino;
+    public GameObject[] Yuasa;
     public int zPos = 10;
     public bool creatingLevel = false;
     public int lvlNum;
     bool StageChange = false;
     int StageCount = 0;
+    int CheckPoint=3;
     public GameObject Tunnel;
     int currentStage = 0; // 現在のステージを追跡するインデックス
 
@@ -37,20 +39,25 @@ public class GenerateLevels : MonoBehaviour
                 case 2:
                     TsujinoLvl();
                     break;
+                case 3:
+                    YuasaLvl();
+                    break;
             }
 
-            if (StageCount >= 2)
+            if (StageCount >= CheckPoint)
             {
+                TunnelLv1();
                 TunnelLv1();
                 creatingLevel = true;
                 StartCoroutine(SwitchStageAfterDelay(3.0f)); // 3秒の待機
+                CheckPoint+=2;
             }
         }
     }
 
     void MarumotoLvl()
     {
-        lvlNum = Random.Range(0, 4); // 0, 1, 2, 3
+        lvlNum = Random.Range(0, 5); // 0, 1, 2, 3
         Instantiate(Marumoto[lvlNum], new Vector3(0, 0, zPos), Quaternion.identity);
         zPos += 15;
         StageCount++;
@@ -58,7 +65,7 @@ public class GenerateLevels : MonoBehaviour
 
     void UetaniLvl()
     {
-        lvlNum = Random.Range(0, 8); // 0, 1, 2, 3
+        lvlNum = Random.Range(0, 9); // 0, 1, 2, 3
         Instantiate(Uetani[lvlNum], new Vector3(0, 0, zPos), Quaternion.identity);
         zPos += 10;
         StageCount++;
@@ -68,6 +75,13 @@ public class GenerateLevels : MonoBehaviour
     {
         lvlNum = Random.Range(0, 4); // 0, 1, 2, 3
         Instantiate(Tsujino[lvlNum], new Vector3(0, 0, zPos), Quaternion.identity);
+        zPos += 10;
+        StageCount++;
+    }
+    void YuasaLvl()
+    {
+        lvlNum = Random.Range(0, 5); // 0, 1, 2, 3
+        Instantiate(Yuasa[lvlNum], new Vector3(0, 0, zPos), Quaternion.identity);
         zPos += 10;
         StageCount++;
     }
