@@ -2,23 +2,26 @@ using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
 using TMPro;
- 
+using UnityEngine.Events;
+
 public class Countdown : MonoBehaviour
 {
 	[SerializeField]
 	private TextMeshProUGUI _textCountdown;
 	public bool start=false;
- 
-	
-	void Start()
+    public UnityEvent CT = new UnityEvent();
+
+
+    void Start()
 	{
 		_textCountdown.text = "";
+        CT.Invoke();
         StartCoroutine(CountdownCoroutine());
 	}
  
 	IEnumerator CountdownCoroutine()
 	{
- 
+          
 		_textCountdown.text = " 3 ";
 		yield return new WaitForSeconds(1.0f);
  

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.SceneManagement;
+using UnityEngine.Events;
 
 public class CoinGet : MonoBehaviour
 {
@@ -10,11 +11,13 @@ public class CoinGet : MonoBehaviour
 
     public static int CoinCount;　//コインのカウント
     public bool OneCount;　//1カウントするためのブール
+    public UnityEvent Coin = new UnityEvent();
 
     void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.tag == "Coin")
         {
+            Coin.Invoke();
             HowMuchCoin();
         }
         else if (collision.gameObject.tag == "TsujinoTest")
