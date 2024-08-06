@@ -14,7 +14,9 @@ public class PlayerControll : MonoBehaviour
     private Countdown countdown; // Countdownスクリプトへの参照を追加
     public TextMeshProUGUI countdownText; //旗に触れたら時間変更
     private tTime ttime; // Time スクリプトへの参照を追加
-     private Animator animator; // Animatorコンポーネントへの参照
+    private HPDecrease HPDecrease; // HPDecrease スクリプトへの参照を追加
+    private Animator animator; // Animatorコンポーネントへの参照
+    public TextMeshProUGUI TimeText; // TextMeshProコンポーネントへの参照
 
     // Start is called before the first frame update
     void Start()
@@ -27,6 +29,7 @@ public class PlayerControll : MonoBehaviour
         {
             countdown = gameManagerObj.GetComponent<Countdown>(); // Countdownスクリプトを取得
             ttime = gameManagerObj.GetComponent<tTime>(); // Timeスクリプトを取得
+            HPDecrease=gameManagerObj.GetComponent<HPDecrease>(); // Timeスクリプトを取得
         }
         else
         {
@@ -37,13 +40,15 @@ public class PlayerControll : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (countdown != null && countdown.start) // カウントダウンが終了したかどうか
+        if ( countdown.start && TimeText.text!="0"&& HPDecrease.Dye==false) // カウントダウンが終了したかどうか
         {
             
             //-----------------移動、ジャンプのスクリプト----------------------
             transform.Translate(Vector3.forward * UnityEngine.Time.deltaTime * moveSpeed, Space.World);
             moveSpeed += UnityEngine.Time.deltaTime * acceleration;
             animator.SetBool("Run",true); // 走り出す
+            
+
 
             if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
             {
@@ -62,6 +67,10 @@ public class PlayerControll : MonoBehaviour
                 animator.SetTrigger("Jump"); // ジャンプのトリガーを設定
                 Debug.Log("ジャンプ");
             }
+        }else if(TimeText.text=="0"){
+            animator.SetBool("Finish",true); // 止まる
+        }else if(HPDecrease.Dye==true){
+            animator.SetBool("Dye",true); // HP0で死亡
         }
     }
 

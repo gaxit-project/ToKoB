@@ -8,13 +8,17 @@ public class GenerateLevels : MonoBehaviour
     public GameObject[] Uetani;
     public GameObject[] Tsujino;
     public GameObject[] Yuasa;
+    public GameObject Tunnel;
+    public GameObject Flag;
     public int zPos = 10;
     public bool creatingLevel = false;
     public int lvlNum;
     bool StageChange = false;
     int StageCount = 0;
-    int CheckPoint=5;
-    public GameObject Tunnel;
+    int CheckPoint=10;
+    float delay=3;
+
+    
     int currentStage = 0; // 現在のステージを追跡するインデックス
 
     // Start is called before the first frame update
@@ -47,10 +51,12 @@ public class GenerateLevels : MonoBehaviour
             if (StageCount >= CheckPoint)
             {
                 TunnelLv1();
+                FlagLv1();
                 TunnelLv1();
                 creatingLevel = true;
-                StartCoroutine(SwitchStageAfterDelay(3.0f)); // 3秒の待機
+                StartCoroutine(SwitchStageAfterDelay(delay)); // 3秒の待機
                 CheckPoint+=2;
+                delay+=3; //生成のスパン遅らす
             }
         }
     }
@@ -73,7 +79,7 @@ public class GenerateLevels : MonoBehaviour
 
     void TsujinoLvl()
     {
-        lvlNum = Random.Range(0, 8); // 0, 1, 2, 3
+        lvlNum = Random.Range(0, 4); // 0, 1, 2, 3
         Instantiate(Tsujino[lvlNum], new Vector3(0, 0, zPos), Quaternion.identity);
         zPos += 10;
         StageCount++;
@@ -90,6 +96,11 @@ public class GenerateLevels : MonoBehaviour
     {
         Instantiate(Tunnel, new Vector3(0, 0, zPos), Quaternion.identity);
         zPos += 10;
+    }
+
+    void FlagLv1()
+    {
+        Instantiate(Flag, new Vector3(0, 2, zPos), Quaternion.identity);
     }
 
     IEnumerator SwitchStageAfterDelay(float delay)

@@ -2,12 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 public class tTime : MonoBehaviour
 {
     public TextMeshProUGUI countdownText; // TextMeshProコンポーネントへの参照
     private Countdown countdown; // Countdownスクリプトへの参照を追加
     public float countdownTime=60f;//スタート時のカウントダウンの時間
     public float currentTime;//現在のカウント時間
+    public TextMeshProUGUI _textCountdown; // Finish表示
 
 
     void Start()
@@ -38,20 +40,23 @@ public class tTime : MonoBehaviour
         }
 
         countdownText.text = "0";
-        CountdownFinished();
+        StartCoroutine(CountdownFinished()); // カウントダウン終了時に2秒間待機
         
     }
 
-    void CountdownFinished()
+    IEnumerator CountdownFinished()
     {
-        // カウントダウンが終了したときの処理をここに記述
+        // カウントダウンが終了したときの処理
         Debug.Log("Countdown finished!");
+        _textCountdown.text = "Finish!";
+        yield return new WaitForSeconds(3f); // 3秒間待機
+        SceneManager.LoadScene("Clear"); // シーンを変更する
     }
 
     public void ResetCountdown()
     {
         currentTime = countdownTime; // カウントダウン時間をリセット
-        countdownText.text="30";
+        currentTime+=10;
         Debug.Log("旗に触れる");
     }
 }

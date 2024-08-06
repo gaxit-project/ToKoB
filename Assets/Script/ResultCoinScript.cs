@@ -35,6 +35,6 @@ public class ResultCoinScript : MonoBehaviour
         Transform Cointransform = this.transform;                                 //transform‚ðŽæ“¾
         Vector3 pos = Cointransform.position;
         Vector3 worldAngle = Cointransform.eulerAngles;
-        Cointransform.position += new Vector3(0, -5, 0) * Time.deltaTime;
+        Cointransform.position += new Vector3(0, -2, 0) * Time.deltaTime;
     }
 }
