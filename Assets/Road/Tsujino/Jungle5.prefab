@@ -2486,6 +2486,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ana
       objectReference: {fileID: 0}
+    - target: {fileID: 4407794414674445328, guid: 2be604c89ad7595439c55775b04627f6, type: 3}
+      propertyPath: m_TagString
+      value: Road
+      objectReference: {fileID: 0}
     - target: {fileID: 5705265427671836191, guid: 2be604c89ad7595439c55775b04627f6, type: 3}
       propertyPath: m_TagString
       value: Road
