@@ -16,7 +16,7 @@ public class GenerateLevels : MonoBehaviour
     bool StageChange = false;
     int StageCount = 0;
     int CheckPoint=5;
-    float delay=3;
+    float delay=6;
 
     
     int currentStage = 0; // 現在のステージを追跡するインデックス
@@ -25,6 +25,7 @@ public class GenerateLevels : MonoBehaviour
     void Start()
     {
         Application.targetFrameRate = 60;
+        currentStage = Random.Range(0, 4);
     }
 
     // Update is called once per frame
@@ -51,7 +52,6 @@ public class GenerateLevels : MonoBehaviour
             if (StageCount >= CheckPoint)
             {
                 TunnelLv1();
-                FlagLv1();
                 TunnelLv1();
                 creatingLevel = true;
                 StartCoroutine(SwitchStageAfterDelay(delay)); // 3秒の待機
@@ -63,7 +63,7 @@ public class GenerateLevels : MonoBehaviour
 
     void MarumotoLvl()
     {
-        lvlNum = Random.Range(0, 5); // 0, 1, 2, 3
+        lvlNum = Random.Range(0, 9); // 0, 1, 2, 3
         Instantiate(Marumoto[lvlNum], new Vector3(0, 0, zPos), Quaternion.identity);
         zPos += 15;
         StageCount++;
@@ -88,7 +88,7 @@ public class GenerateLevels : MonoBehaviour
     {
         lvlNum = Random.Range(0, 5); // 0, 1, 2, 3
         Instantiate(Yuasa[lvlNum], new Vector3(0, 0, zPos), Quaternion.identity);
-        zPos += 10;
+        zPos += 15;
         StageCount++;
     }
 
@@ -108,7 +108,7 @@ public class GenerateLevels : MonoBehaviour
         Debug.Log("ステージ切り替え");
         yield return new WaitForSeconds(delay); // 指定された時間待機
         StageCount = 0;
-        currentStage = (currentStage + 1) % 3; // 次のステージに切り替え（0, 1, 2 の範囲でループ）
+        currentStage = Random.Range(0, 4); // 次のステージに切り替え（0, 1, 2,3 の範囲でループ）
         creatingLevel = false;
     }
 }
