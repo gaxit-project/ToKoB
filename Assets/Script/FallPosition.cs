@@ -16,7 +16,7 @@ public class FallPosition : MonoBehaviour
         Vector3 position = transform.position;
 
         // y座標が0未満の場合に処理を実行
-        if (position.y < -0.5)
+        if (position.y < -1)
         {
             Debug.Log("オブジェクトがy座標-1より下に移動しました");
             Fall.Invoke();

@@ -52,10 +52,10 @@ public class GenerateLevels : MonoBehaviour
             if (StageCount >= CheckPoint)
             {
                 TunnelLv1();
-                TunnelLv1();
+                //TunnelLv1();
                 creatingLevel = true;
                 StartCoroutine(SwitchStageAfterDelay(delay)); // 3秒の待機
-                CheckPoint+=2;
+                CheckPoint++;
                 delay+=3; //生成のスパン遅らす
             }
         }
@@ -95,7 +95,7 @@ public class GenerateLevels : MonoBehaviour
     void TunnelLv1()
     {
         Instantiate(Tunnel, new Vector3(0, 0, zPos), Quaternion.identity);
-        zPos += 10;
+        zPos += 20;
     }
 
     void FlagLv1()

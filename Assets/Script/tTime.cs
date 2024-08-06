@@ -7,7 +7,7 @@ public class tTime : MonoBehaviour
 {
     public TextMeshProUGUI countdownText; // TextMeshProコンポーネントへの参照
     private Countdown countdown; // Countdownスクリプトへの参照を追加
-    public float countdownTime=60f;//スタート時のカウントダウンの時間
+    public float countdownTime=30f;//スタート時のカウントダウンの時間
     public float currentTime;//現在のカウント時間
     public TextMeshProUGUI _textCountdown; // Finish表示
 
@@ -55,8 +55,8 @@ public class tTime : MonoBehaviour
 
     public void ResetCountdown()
     {
-        currentTime = countdownTime; // カウントダウン時間をリセット
-        currentTime+=10;
+        //currentTime = countdownTime; // カウントダウン時間をリセット
+        currentTime+=5;
         Debug.Log("旗に触れる");
     }
 }

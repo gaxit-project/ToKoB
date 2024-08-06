@@ -8,6 +8,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -9141723906626140987, guid: 2f8c16c8180386a4d9b1d62564f043d7, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -9141723906626140987, guid: 2f8c16c8180386a4d9b1d62564f043d7, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.999
+      objectReference: {fileID: 0}
+    - target: {fileID: -9067965481526737029, guid: 2f8c16c8180386a4d9b1d62564f043d7, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -9067965481526737029, guid: 2f8c16c8180386a4d9b1d62564f043d7, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.999
+      objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 2f8c16c8180386a4d9b1d62564f043d7, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -52,6 +68,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: Flag
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 2f8c16c8180386a4d9b1d62564f043d7, type: 3}
+      propertyPath: m_TagString
+      value: Flag
+      objectReference: {fileID: 0}
+    - target: {fileID: 3626448885386269182, guid: 2f8c16c8180386a4d9b1d62564f043d7, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3626448885386269182, guid: 2f8c16c8180386a4d9b1d62564f043d7, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.999
+      objectReference: {fileID: 0}
+    - target: {fileID: 6314619767947064288, guid: 2f8c16c8180386a4d9b1d62564f043d7, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6314619767947064288, guid: 2f8c16c8180386a4d9b1d62564f043d7, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.999
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -80,6 +116,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70bd6380f447ccf4ab463fcb766205c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Get:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!65 &3883105612336819012
 BoxCollider:
   m_ObjectHideFlags: 0

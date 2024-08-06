@@ -8,6 +8,7 @@ using UnityEngine.Events;
 public class CoinGet : MonoBehaviour
 {
     public TextMeshProUGUI CountCoinText;
+    public GameObject GetFlag;
 
     public static int CoinCount;　//コインのカウント
     public bool OneCount;　//1カウントするためのブール
@@ -23,6 +24,10 @@ public class CoinGet : MonoBehaviour
         else if (collision.gameObject.tag == "TsujinoTest")
         {
             SceneManager.LoadScene("Clear");
+        }
+        else if (collision.gameObject.tag == "Flag")
+        {
+            StartCoroutine("TimePlusCoroutine");
         }
     }
 
@@ -50,15 +55,31 @@ public class CoinGet : MonoBehaviour
 
     }
 
+    IEnumerator TimePlusCoroutine()　//エネミーのターンの終了、終了後の処理を行うコルーチン
+    {
+        //ここに処理を書く
+        GetFlag.SetActive(true);
+        //Debug.Log("ターンエンド！");
+
+        //1フレーム停止
+        yield return new WaitForSeconds(1f);　//0.5f時間をストップ
+
+        //ここに再開後の処理を書く
+        GetFlag.SetActive(false);
+        //Debug.Log("ターンエンド！");
+
+    }
+
     // Start is called before the first frame update
     void Start()
     {
         OneCount = true;
+        CoinCount = 0;
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 }

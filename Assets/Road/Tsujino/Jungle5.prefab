@@ -2494,6 +2494,14 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Road
       objectReference: {fileID: 0}
+    - target: {fileID: 5843932431977659188, guid: 2be604c89ad7595439c55775b04627f6, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -1.842
+      objectReference: {fileID: 0}
+    - target: {fileID: 5843932431977659188, guid: 2be604c89ad7595439c55775b04627f6, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 4.553
+      objectReference: {fileID: 0}
     - target: {fileID: 7742970411007462485, guid: 2be604c89ad7595439c55775b04627f6, type: 3}
       propertyPath: m_LocalPosition.x
       value: 4.496601
