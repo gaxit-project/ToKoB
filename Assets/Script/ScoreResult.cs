@@ -25,11 +25,24 @@ public class ScoreResult : MonoBehaviour
 
 
         //1フレーム停止
-        yield return new WaitForSeconds(1f);　//0.5f時間をストップ
+        yield return new WaitForSeconds(0.2f);　//0.5f時間をストップ
 
         //ここに再開後の処理を書く
         OneCount = true;
         CoinInBox = CoinInBox - 1;
+        //Debug.Log("ターンエンド！");
+
+    }
+
+    IEnumerator FinishScoreCoroutine()　//エネミーのターンの終了、終了後の処理を行うコルーチン
+    {
+        //ここに処理を書く
+
+        //1フレーム停止
+        yield return new WaitForSeconds(1f);　//0.5f時間をストップ
+
+        //ここに再開後の処理を書く
+        ResultText.text = "Your Score is " + CoinGet.CoinCount.ToString();
         //Debug.Log("ターンエンド！");
 
     }
@@ -55,7 +68,8 @@ public class ScoreResult : MonoBehaviour
         }
         else if(CoinInBox == 0)
         {
-            CoinDrop();
+            StartCoroutine("FinishScoreCoroutine");
+            //CoinDrop();
         }
     }
 }

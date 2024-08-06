@@ -13,7 +13,7 @@ public class GenerateLevels : MonoBehaviour
     public int lvlNum;
     bool StageChange = false;
     int StageCount = 0;
-    int CheckPoint=3;
+    int CheckPoint=5;
     public GameObject Tunnel;
     int currentStage = 0; // 現在のステージを追跡するインデックス
 
@@ -73,7 +73,7 @@ public class GenerateLevels : MonoBehaviour
 
     void TsujinoLvl()
     {
-        lvlNum = Random.Range(0, 4); // 0, 1, 2, 3
+        lvlNum = Random.Range(0, 8); // 0, 1, 2, 3
         Instantiate(Tsujino[lvlNum], new Vector3(0, 0, zPos), Quaternion.identity);
         zPos += 10;
         StageCount++;
