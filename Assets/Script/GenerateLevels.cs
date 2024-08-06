@@ -16,7 +16,7 @@ public class GenerateLevels : MonoBehaviour
     bool StageChange = false;
     int StageCount = 0;
     int CheckPoint=5;
-    float delay=6;
+    float delay=5;
 
     
     int currentStage = 0; // 現在のステージを追跡するインデックス
